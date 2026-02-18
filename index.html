@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Favourite Place</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>My Favourite Place</h1>
+      <p class="subtitle">Stories of cherished places from around the world</p>
+      <nav>
+        <a href="#explore" class="nav-link active" data-section="explore">Explore</a>
+        <a href="#submit" class="nav-link" data-section="submit">Share Yours</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Explore Section -->
+    <section id="explore" class="section active">
+      <div class="filters">
+        <div class="search-bar">
+          <input type="text" id="search" placeholder="Search places, flora, fauna, or feelings...">
+        </div>
+        <div class="filter-row">
+          <div class="filter-group">
+            <label for="filter-country">Country</label>
+            <select id="filter-country">
+              <option value="">All Countries</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-flora">Flora</label>
+            <select id="filter-flora">
+              <option value="">All Flora</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-fauna">Fauna</label>
+            <select id="filter-fauna">
+              <option value="">All Fauna</option>
+            </select>
+          </div>
+          <button id="clear-filters" class="btn-secondary">Clear Filters</button>
+        </div>
+        <p class="results-count"><span id="count">0</span> places found</p>
+      </div>
+
+      <div id="cards" class="card-grid"></div>
+    </section>
+
+    <!-- Submit Section -->
+    <section id="submit" class="section">
+      <div class="form-container">
+        <h2>Share Your Favourite Place</h2>
+        <p class="form-intro">Tell us about a place that makes your heart sing. Where is it? What grows there? What creatures call it home? How does it make you feel?</p>
+        <form id="submit-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="form-name">Your Name</label>
+              <input type="text" id="form-name" required placeholder="e.g. Maria Santos">
+            </div>
+            <div class="form-field">
+              <label for="form-country">Country</label>
+              <input type="text" id="form-country" required placeholder="e.g. Brazil">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="form-place">Place Name</label>
+            <input type="text" id="form-place" required placeholder="e.g. Chapada Diamantina, Bahia">
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="form-flora">Flora <span class="hint">(comma-separated)</span></label>
+              <input type="text" id="form-flora" required placeholder="e.g. Bromeliad, Candeia tree, Sempre-viva flower">
+            </div>
+            <div class="form-field">
+              <label for="form-fauna">Fauna <span class="hint">(comma-separated)</span></label>
+              <input type="text" id="form-fauna" required placeholder="e.g. Maned wolf, Hyacinth macaw">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="form-description">Your Description</label>
+            <textarea id="form-description" rows="6" required placeholder="Describe your favourite place. What does it look like? Sound like? Smell like? What makes it special to you?"></textarea>
+          </div>
+          <div class="form-field">
+            <label for="form-feeling">How does this place make you feel? <span class="hint">(a few words)</span></label>
+            <input type="text" id="form-feeling" required placeholder="e.g. Adventurous and amazed">
+          </div>
+          <button type="submit" class="btn-primary">Share Your Place</button>
+        </form>
+        <div id="form-success" class="success-message" hidden>
+          <p>Thank you for sharing your favourite place! It has been added to our collection.</p>
+          <button id="view-submission" class="btn-secondary">View it now</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for full description -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>My Favourite Place &mdash; A collection of the world's most cherished places</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
